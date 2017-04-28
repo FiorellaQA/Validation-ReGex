@@ -13,52 +13,60 @@ function validationInput(){
 		}
 
 		if(this.getAttribute("id")=="name"){
-			if(patronTexto.test(this.value.trim())){
-
+			if(!(patronTexto.test(this.value.trim()))){
+				this.nextElementSibling.innerHTML = "</br>*La primera letra debe ser mayúscula.";
 			} else{
-
+				this.nextElementSibling.innerHTML = "";
 			}
 		}
 		if(this.getAttribute("id")=="lastname"){
-			if (patronTexto.test(this.value.trim())){
-
+			if (!(patronTexto.test(this.value.trim()))){
+				this.nextElementSibling.innerHTML = "</br>*La primera letra debe ser mayúscula.";
 			}else{
-
+				this.nextElementSibling.innerHTML = "";
 			}		
 		}
 		if(this.getAttribute("id")=="dni"){
-			if (patronDni.test(this.value.trim())){
+			if (!(patronDni.test(this.value.trim()))){
+				this.nextElementSibling.innerHTML = "</br>*Debe contener 8 dígitos del 0 al 9.";
 
 			}else{
-
+				this.nextElementSibling.innerHTML = "";
 			}		
 		}
 		if(this.getAttribute("id")=="date"){
-			if (patronFecha.test(this.value.trim())){
+			if (!(patronFecha.test(this.value.trim()))){
+				this.nextElementSibling.innerHTML = "</br>*Debe seguir el siguiete formato. Ej: 17/10/2017";
 
 			}else{
-
+				this.nextElementSibling.innerHTML = "";
 			}		
 		}
 		if(this.getAttribute("id")=="cellphone"){
-			if (patronCelular.test(this.value.trim())){
-
+			if (!(patronCelular.test(this.value.trim()))){
+				this.nextElementSibling.innerHTML = "</br>*El número empieza con 9 seguido de 8 dígitos";
 			}else{
-
+				this.nextElementSibling.innerHTML = "";
 			}		
 		}
 		if(this.getAttribute("id")=="phone"){
-			if (patronFijo.test(this.value.trim())){
+			if (!(patronFijo.test(this.value.trim()))){
+				this.nextElementSibling.innerHTML = "</br>*El primer dígito esta en el rango 1-7 seguido de 6 dígitos";
 
 			}else{
-
+				this.nextElementSibling.innerHTML = "";
 			}		
 		}
 		if(this.getAttribute("id")=="password"){
-			if (patronContrasena.test(this.value.trim())){
-
+			if (!(patronContrasena.test(this.value.trim()))){
+				this.nextElementSibling.innerHTML = "</br>*Debe estar compuesto por 6 dígitos o más.Y seguir el sgte formato:"+
+													"<ul>" +
+														"<li>Mayúsculas y minnusculas</li>" +
+														"<li>Minusculas y números</li>" +
+														"<li>Mayúculas y números</li>" +
+													"<ul>";
 			}else{
-
+				this.nextElementSibling.innerHTML = "";
 			}		
 		}
 		//Limpia el campo indicacion cuando el usuario ya esta escribiendo
@@ -75,23 +83,11 @@ document.getElementById("bt").addEventListener("click",function(e){
 			indicacion.innerHTML = "*Todos los campos son obligatorios.</br>";
 		}
 	}
-
-
-
-		// if(name.length !=0 && lastname.length != 0 && age.length != 0 && country.length != 0 && city.length != 0 && gender.length !=0){
-		// 	document.getElementById("form1").reset();
-		// 	indicacion.innerHTML = "";
-		// 	//Bienvenidoooooooooooooooooooooooooo!!!
-		// }else{	
-			
-		// 	indicacion.innerHTML = "*Todos los campos son obligatorios.</br>";
-		// }
 });
 
 	var array = document.getElementsByClassName("input-registro");
 	for(i = 0 ; i < array.length; i++){
 		array[i].addEventListener("blur", validationInput);
-		
 	}
 
 
