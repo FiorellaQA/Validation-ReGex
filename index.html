@@ -11,30 +11,46 @@
 		<div class="flex-container">
 			<div class="flex-item">
 				<form id="form1">
-					<label for="name">Nombre:</label>
-					<input class="input-registro" type="text" id="name" placeholder="Ingrese su nombre ">
-					<span id="messageName"></span>	
-					<br><br>
-					<label for="lastname">Apellido:</label>
-					<input class="input-registro" type="text" id="lastname" placeholder="Ingrese su apellido">	
-					<span id="messageLastname"></span>
-					<br><br>
-					<label for="age">Edad:</label>
-					<input class="input-registro" type="text" id="age" placeholder="Ingrese su edad">	
-					<span id="messageAge"></span>
-					<br><br>
-					<label for="country">Pais:</label>
-					<input class="input-registro" type="text" id="country" placeholder="Ingresa tu país">
-					<span id="messageCountry"></span>	
-					<br><br>
-					<label for="city">Ciudad:</label>
-					<input class="input-registro" type="text" id="city" placeholder="Ingresa tu ciudad">
-					<span id="messageCity"></span>	
-					<br><br>
-					<label for="gender">Género:</label>
-					<input class="input-registro" type="text" id="gender" placeholder="Ingrese su género">	
-					<span id="messageGender"></span>
-					<br><br>
+					<div>
+						<label for="name">Nombre:</label>
+						<input class="input-registro" type="text" id="name" placeholder="Ingrese su nombre " value="oli">
+					</div>
+					<div>
+						<label for="lastname">Apellido:</label>
+						<input class="input-registro" type="text" id="lastname" placeholder="Ingrese su apellido">	
+					</div>
+					<div>
+						<label for="dni">DNI:</label>
+        				<input class="input-registro" id = "dni" type="number" pattern="[0-9]{8}" required>
+					</div>
+					<div>
+        				<label for="date">Fecha de nacimiento:</label>
+        				<input class="input-registro" id = "date" type="date" name="" value="" required>
+					</div>
+					<div>
+        				<label for="cellphone">Celular:</label>
+        				<input class="input-registro" id = "cellphone" type="tel" name="" value="" required>
+					</div>
+					<div>
+        				<label for="phone">Telefono fijo:</label>
+        				<input id = "phone" type="tel" name="" value="" required>
+					</div>
+					<div>
+        				<label for="password">Contraseña:</label>
+        				<input id = "password" type="password" name="" value="" required>
+					</div>
+					<div>
+        				<label for="confirmP">Confirmar contraseña:</label>
+        				<input id = "confirmP" type="password" name="" value="" required>
+					</div>
+					<div>
+        				<label for="comment">Comentarios:</label><br>
+        				<textarea id = "comment" name="name" rows="8" cols="60" required></textarea>
+					</div>
+					<div>
+        				<input id = "check" type="checkbox" name="" value="" required>
+        				<label for="check">Acepto los términos y condiciones</label>
+					</div>
 					<span id="indicacion"></span>
 					<button id="bt">Enviar Datos</button>
 				</form>

@@ -18,22 +18,11 @@ body, html {
   	box-shadow: 0px 0px 7px grey;
   	padding: 40px;
 }
-
-.paciente{
-	border: 1px solid black;
-	margin: 10px;
-	padding: 10px;
-	display: inline-block;
+#form1 div{
+	margin:10px;
 }
+
 span{
 	color: red;
 	font-size: 12px;
 }
-#nombre-paciente,#apellido-paciente,#edad-paciente,#genero-paciente,#ciudad-paciente,#pais-paciente{
-	color: black;
-	margin: 0;
-}
-#records {
-	text-align: left;
-	padding: 20px;
-} 

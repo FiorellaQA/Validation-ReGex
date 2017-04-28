@@ -1,84 +1,98 @@
-//VARIABLES
-	var name1 = document.getElementById("name");
-	var lastname = document.getElementById("lastname");
-	var edad = document.getElementById("age");
-	var pais = document.getElementById("country");
-	var ciudad = document.getElementById("city");
-	var genero = document.getElementById("gender");
-//FUNCIONES
-	function soloLetras(e){
-		var codigoTecla = e.keyCode;
-		if((codigoTecla>=97 && codigoTecla<=122)||(codigoTecla>=65 && codigoTecla<=90)||codigoTecla==39 || codigoTecla == 32){
-			this.nextElementSibling.innerHTML = "";
-			return true;
-		}else{
-			this.nextElementSibling.innerHTML = "<br>*Este campo solo permite letras";
-			return false;
-		}
-	}
-	function soloNumeros(e){
-		var codigoTecla = e.keyCode;
-		var longitud = this.value.length;
-		if(codigoTecla>=48 && codigoTecla<=57 && this.value.length<2){
-			this.nextElementSibling.innerHTML = "";
-			return true; 
-		}else{
-			this.nextElementSibling.innerHTML = "<br>*Este campo solo permite números de 2 digitos";
-			return false;
-		}
-		//Pasa al siguiente input
-		// if(longitud==2){
-		// 	this.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.focus();
-		// }
-	}
-	function validationInput(){
+function validationInput(){
+		var patronTexto = /^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$/;
+		var patronDni = /^[0-9]{8}/;
+		var patronFecha = /^([0-9]{2})([/]{1})([0-9]{2})([/]{1})([0-9]{4})/; // 17/10/1990
+		var patronCelular = /^[9]{1}([\d]{8})/;
+		var patronFijo = /^[1-7]{1}([\d]{6})/;
+		var patronContrasena = /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/;
+
 		if(this.value.trim().length === 0){
 			this.nextElementSibling.innerHTML = "</br>*Este campo es obligatorio";
 		}else{
 			this.nextElementSibling.innerHTML = "";		
 		}
-		//CONVIERTE LA PRIMERA LETRA DE UNA PALABRA A MAYUSCULA 
-		// var datoCorrecto = this.value.charAt(0).toUpperCase()+this.value.substring(1).toLowerCase();
-		// this.value=datoCorrecto;
-		//CONVIERTE LA PRIMERA LETRA DE 2 O MAS PALABRAS A MAYUSCULA
-		if(this.getAttribute("type")=="text"){
-			var arrDato = this.value.split(" ");
-			var datoConMayusculas = "";
-		for(var i = 0; i<arrDato.length;i++){
-				datoConMayusculas += arrDato[i].charAt(0).toUpperCase() + arrDato[i].substring(1).toLowerCase() + " ";
+
+		if(this.getAttribute("id")=="name"){
+			if(patronTexto.test(this.value.trim())){
+
+			} else{
+
+			}
 		}
-			this.value=datoConMayusculas;
+		if(this.getAttribute("id")=="lastname"){
+			if (patronTexto.test(this.value.trim())){
+
+			}else{
+
+			}		
+		}
+		if(this.getAttribute("id")=="dni"){
+			if (patronDni.test(this.value.trim())){
+
+			}else{
+
+			}		
+		}
+		if(this.getAttribute("id")=="date"){
+			if (patronFecha.test(this.value.trim())){
+
+			}else{
+
+			}		
+		}
+		if(this.getAttribute("id")=="cellphone"){
+			if (patronCelular.test(this.value.trim())){
+
+			}else{
+
+			}		
+		}
+		if(this.getAttribute("id")=="phone"){
+			if (patronFijo.test(this.value.trim())){
+
+			}else{
+
+			}		
+		}
+		if(this.getAttribute("id")=="password"){
+			if (patronContrasena.test(this.value.trim())){
+
+			}else{
+
+			}		
 		}
 		//Limpia el campo indicacion cuando el usuario ya esta escribiendo
 		var indicacion = document.getElementById("indicacion");
 			indicacion.innerHTML = "";
 	}
 //EVENTOS
-	document.getElementById("bt").addEventListener("click",function(e){
-		e.preventDefault();
-		var name = document.getElementById("name").value;
-		var lastname = document.getElementById("lastname").value;
-		var age = document.getElementById("age").value;
-		var country = document.getElementById("country").value;
-		var city = document.getElementById("city").value;
-		var gender = document.getElementById("gender").value;
-		var indicacion = document.getElementById("indicacion");
-		if(name.length !=0 && lastname.length != 0 && age.length != 0 && country.length != 0 && city.length != 0 && gender.length !=0){
-			document.getElementById("form1").reset();
-			indicacion.innerHTML = "";
-			//Bienvenidoooooooooooooooooooooooooo!!!
-		}else{	
-			
+document.getElementById("bt").addEventListener("click",function(e){
+	e.preventDefault();
+	var indicacion = document.getElementById("indicacion");
+	var array = document.getElementsByClassName("input-registro");
+	for(i = 0 ; i < array.length; i++){
+		if(! (array[i].value.trim().length != 0)){
 			indicacion.innerHTML = "*Todos los campos son obligatorios.</br>";
 		}
-	});
-	name1.onkeypress=soloLetras;
-	lastname.onkeypress=soloLetras;
-	edad.onkeypress = soloNumeros;
-	pais.onkeypress = soloLetras;
-	ciudad.onkeypress = soloLetras;
-	genero.onkeypress = soloLetras;
+	}
+
+
+
+		// if(name.length !=0 && lastname.length != 0 && age.length != 0 && country.length != 0 && city.length != 0 && gender.length !=0){
+		// 	document.getElementById("form1").reset();
+		// 	indicacion.innerHTML = "";
+		// 	//Bienvenidoooooooooooooooooooooooooo!!!
+		// }else{	
+			
+		// 	indicacion.innerHTML = "*Todos los campos son obligatorios.</br>";
+		// }
+});
+
 	var array = document.getElementsByClassName("input-registro");
 	for(i = 0 ; i < array.length; i++){
 		array[i].addEventListener("blur", validationInput);
+		
 	}
+
+
+
