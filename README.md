@@ -6,4 +6,4 @@ Ejercicio de la Lección 26 - "Validaciones"
  * OnClick 
  * Onblur
 
-* **Ejercicio Finalizado** [aqui](https://fiorellaqa.github.io/Validation-ReGex/)
+**Ejercicio Finalizado** [aqui](https://fiorellaqa.github.io/Validation-ReGex/)
